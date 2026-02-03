@@ -25,3 +25,15 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "availability_zones" {
+  description = "List of availability zones for subnets"
+  type        = list(string)
+  default     = []
+}
+
+variable "subnets" {
+  description = "List of CIDR blocks for subnets"
+  type        = list(string)
+  default     = []
+}

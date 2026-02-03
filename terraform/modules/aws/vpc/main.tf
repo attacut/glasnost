@@ -20,3 +20,18 @@ resource "aws_vpc" "this" {
     }
   )
 }
+
+# Public Subnets
+resource "aws_subnet" "this" {
+  count                   = length(var.subnets)
+  vpc_id                  = aws_vpc.this.id
+  cidr_block              = var.subnets[count.index]
+  availability_zone       = var.availability_zones[count.index % length(var.availability_zones)]
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.vpc_name}-${count.index + 1}"
+    }
+  )
+}
