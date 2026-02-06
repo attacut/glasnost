@@ -1,7 +1,7 @@
 locals {
   env = get_env("ENV", "dev")
   
-  aws_region = get_env("AWS_REGION", "us-east-1")
+  aws_region = get_env("AWS_REGION", "ap-southeast-1")
   
   common_tags = {
     Environment = local.env
@@ -25,9 +25,13 @@ EOF
 }
 
 remote_state {
-  backend = "local"
+  backend = "s3"
   config = {
-    path = "${get_terragrunt_dir()}/terraform.tfstate"
+    bucket         = "terraform-state-3001bd9d"
+    key            = "${path_relative_to_include()}/terraform.tfstate"
+    region         = local.aws_region
+    encrypt        = true
+    #dynamodb_table = "glasnost-terraform-locks"
   }
   generate = {
     path      = "backend.tf"

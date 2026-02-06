@@ -9,19 +9,23 @@ terraform {
 }
 
 inputs = {
-  vpc_name  = "glasnost-dev-vpc"
-  vpc_cidr  = "10.0.0.0/16"
+  vpc_name  = "glasnost-vpc"
+  vpc_cidr  = "172.16.0.0/16"
   
-  subnets = [
-    "10.0.1.0/24",
-    "10.0.2.0/24",
-    "10.0.3.0/24"
+  public_subnets = [
+    "172.16.100.0/24",
+  ]
+  
+  private_subnets = [
+    "172.16.1.0/24",
+    "172.16.2.0/24",
+    "172.16.3.0/24"
   ]
   
   availability_zones = [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c"
+    "ap-southeast-1a",
+    "ap-southeast-1b",
+    "ap-southeast-1c"
   ]
   
   enable_dns_hostnames = true

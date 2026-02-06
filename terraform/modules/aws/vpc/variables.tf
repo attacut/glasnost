@@ -26,8 +26,14 @@ variable "tags" {
   default     = {}
 }
 
-variable "subnets" {
-  description = "List of CIDR blocks for subnets"
+variable "public_subnets" {
+  description = "List of CIDR blocks for public subnets"
+  type        = list(string)
+  default     = []
+}
+
+variable "private_subnets" {
+  description = "List of CIDR blocks for private subnets"
   type        = list(string)
   default     = []
 }

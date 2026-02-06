@@ -8,12 +8,22 @@ output "vpc_arn" {
   value       = aws_vpc.this.arn
 }
 
-output "subnet_ids" {
-  description = "List of subnet IDs"
-  value       = aws_subnet.this[*].id
+output "public_subnet_ids" {
+  description = "List of public subnet IDs"
+  value       = aws_subnet.public[*].id
 }
 
-output "subnet_arns" {
-  description = "List of subnet ARNs"
-  value       = aws_subnet.this[*].arn
+output "private_subnet_ids" {
+  description = "List of private subnet IDs"
+  value       = aws_subnet.private[*].id
+}
+
+output "public_subnet_arns" {
+  description = "List of public subnet ARNs"
+  value       = aws_subnet.public[*].arn
+}
+
+output "private_subnet_arns" {
+  description = "List of private subnet ARNs"
+  value       = aws_subnet.private[*].arn
 }
