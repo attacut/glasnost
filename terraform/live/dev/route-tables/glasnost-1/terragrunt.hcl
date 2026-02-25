@@ -19,13 +19,14 @@ dependency "subnets" {
   
   mock_outputs = {
     subnet_ids = {
-      "public-1"  = "subnet-mock-public-1"
-      "public-2"  = "subnet-mock-public-2"
-      "private-1" = "subnet-mock-private-1"
-      "private-2" = "subnet-mock-private-2"
-      "private-3" = "subnet-mock-private-3"
+      "glasnost-1-public-1"  = "subnet-mock-public-1"
+      "glasnost-1-public-2"  = "subnet-mock-public-2"
+      "glasnost-1-private-1" = "subnet-mock-private-1"
+      "glasnost-1-private-2" = "subnet-mock-private-2"
+      "glasnost-1-private-3" = "subnet-mock-private-3"
     }
   }
+}
 }
 
 inputs = {
@@ -34,24 +35,24 @@ inputs = {
 
   route_tables = [
     {
-      name        = "public-1-rt"
-      subnet_name = "public-1"
+      name        = "glasnost-1-public-1-rt"
+      subnet_name = "glasnost-1-public-1"
     },
     {
-      name        = "public-2-rt"
-      subnet_name = "public-2"
+      name        = "glasnost-1-public-2-rt"
+      subnet_name = "glasnost-1-public-2"
     },
     {
-      name        = "private-1-rt"
-      subnet_name = "private-1"
+      name        = "glasnost-1-private-1-rt"
+      subnet_name = "glasnost-1-private-1"
     },
     {
-      name        = "private-2-rt"
-      subnet_name = "private-2"
+      name        = "glasnost-1-private-2-rt"
+      subnet_name = "glasnost-1-private-2"
     },
     {
-      name        = "private-3-rt"
-      subnet_name = "private-3"
+      name        = "glasnost-1-private-3-rt"
+      subnet_name = "glasnost-1-private-3"
     }
   ]
 

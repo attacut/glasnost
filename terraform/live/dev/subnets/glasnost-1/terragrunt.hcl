@@ -19,32 +19,32 @@ inputs = {
 
   subnets = [
     {
-      name = "public-1"
+      name = "glasnost-1-public-1"
       cidr = "172.16.100.0/24"
       az   = "ap-southeast-1a"
       type = "public"
     },
     {
-      name = "public-2"
+      name = "glasnost-1-public-2"
       cidr = "172.16.101.0/24"
       az   = "ap-southeast-1b"
       type = "public"
     },
 
     {
-      name = "private-1"
+      name = "glasnost-1-private-1"
       cidr = "172.16.1.0/24"
       az   = "ap-southeast-1a"
       type = "private"
     },
     {
-      name = "private-2"
+      name = "glasnost-1-private-2"
       cidr = "172.16.2.0/24"
       az   = "ap-southeast-1b"
       type = "private"
     },
     {
-      name = "private-3"
+      name = "glasnost-1-private-3"
       cidr = "172.16.3.0/24"
       az   = "ap-southeast-1c"
       type = "private"
