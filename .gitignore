@@ -1,9 +1,13 @@
 # Local .terraform directories
-.terraform/
+**/.terraform/*
+
+# Terragrunt cache
+**/.terragrunt-cache/
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.tfstate.backup
 
 # Crash log files
 crash.log
@@ -30,11 +34,39 @@ override.tf.json
 # !example_override.tf
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
+*tfplan*
 
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
 
+# Generated files
+**/backend.tf
+**/provider.tf
+
+# Ignore lock files (uncomment if you want to ignore them)
+# .terraform.lock.hcl
+
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# Environment files
+.env
+.env.local
