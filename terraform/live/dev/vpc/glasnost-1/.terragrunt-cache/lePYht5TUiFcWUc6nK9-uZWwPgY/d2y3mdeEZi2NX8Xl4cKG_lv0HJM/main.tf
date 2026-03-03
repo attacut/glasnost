@@ -6,7 +6,7 @@ resource "aws_vpc" "this" {
   tags = merge(
     var.tags,
     {
-      name = var.vpc_name
+      Name = var.vpc_name
     }
   )
 }

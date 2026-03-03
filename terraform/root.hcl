@@ -1,12 +1,12 @@
 locals {
-  env = get_env("ENV", "dev")
-  
-  aws_region = get_env("AWS_REGION", "ap-southeast-1")
-  
+  env          = get_env("ENV", "dev")
+  aws_region   = get_env("AWS_REGION", "ap-southeast-1")
+  project_name = basename(get_repo_root())
+
   common_tags = {
     Environment = local.env
     ManagedBy   = "Terragrunt"
-    Project     = "glasnost"
+    Project     = local.project_name
   }
 }
 

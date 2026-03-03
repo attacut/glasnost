@@ -10,7 +10,8 @@ dependency "vpc" {
   config_path = "../../vpc/glasnost-1"
   
   mock_outputs = {
-    vpc_id = "vpc-mock-id"
+    vpc_id   = "vpc-mock-id"
+    vpc_name = "glasnost-1"
   }
 }
 
@@ -19,32 +20,32 @@ inputs = {
 
   subnets = [
     {
-      name = "public-1"
+      name = "${dependency.vpc.outputs.vpc_name}-public-1"
       cidr = "172.16.100.0/24"
       az   = "ap-southeast-1a"
       type = "public"
     },
     {
-      name = "public-2"
+      name = "${dependency.vpc.outputs.vpc_name}-public-2"
       cidr = "172.16.101.0/24"
       az   = "ap-southeast-1b"
       type = "public"
     },
 
     {
-      name = "private-1"
+      name = "${dependency.vpc.outputs.vpc_name}-private-1"
       cidr = "172.16.1.0/24"
       az   = "ap-southeast-1a"
       type = "private"
     },
     {
-      name = "private-2"
+      name = "${dependency.vpc.outputs.vpc_name}-private-2"
       cidr = "172.16.2.0/24"
       az   = "ap-southeast-1b"
       type = "private"
     },
     {
-      name = "private-3"
+      name = "${dependency.vpc.outputs.vpc_name}-private-3"
       cidr = "172.16.3.0/24"
       az   = "ap-southeast-1c"
       type = "private"
