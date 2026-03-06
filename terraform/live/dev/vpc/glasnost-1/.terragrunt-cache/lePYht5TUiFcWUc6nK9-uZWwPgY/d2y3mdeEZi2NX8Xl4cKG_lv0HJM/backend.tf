@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket  = "terraform-state-3001bd9d"
     encrypt = true
-    key     = "live/dev/vpc/glasnost-1/terraform.tfstate"
+    key     = "dev/vpc/glasnost-1/terraform.tfstate"
     region  = "ap-southeast-1"
   }
 }
