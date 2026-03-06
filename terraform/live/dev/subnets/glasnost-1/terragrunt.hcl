@@ -53,7 +53,7 @@ inputs = {
   ]
 
   tags = {
-    Environment = "dev"
-    Project     = "glasnost"
+    env         = "dev"
+    project     = "glasnost"
   }
 }

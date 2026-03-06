@@ -4,9 +4,9 @@ locals {
   project_name = basename(get_repo_root())
 
   common_tags = {
-    Environment = local.env
-    ManagedBy   = "Terragrunt"
-    Project     = local.project_name
+    env         = local.env
+    managedby   = "terragrunt"
+    project     = local.project_name
   }
 }
 

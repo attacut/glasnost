@@ -3,6 +3,6 @@ provider "aws" {
   region = "ap-southeast-1"
 
   default_tags {
-    tags = { "Environment" : "dev", "ManagedBy" : "Terragrunt", "Project" : "glasnost" }
+    tags = { "env" : "dev", "managedby" : "terragrunt", "project" : "glasnost" }
   }
 }

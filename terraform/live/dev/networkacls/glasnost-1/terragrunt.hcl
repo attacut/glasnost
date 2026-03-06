@@ -63,6 +63,14 @@ inputs = {
           protocol   = "tcp"
           action     = "allow"
           cidr_block = "0.0.0.0/0"
+          from_port  = 22
+          to_port    = 22
+        },
+        {
+          rule_no    = 130
+          protocol   = "tcp"
+          action     = "allow"
+          cidr_block = "0.0.0.0/0"
           from_port  = 1024
           to_port    = 65535
         },
@@ -133,7 +141,7 @@ inputs = {
   ]
 
   tags = {
-    Environment = "dev"
-    Project     = "glasnost"
+    env         = "dev"
+    project     = "glasnost"
   }
 }
