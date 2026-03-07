@@ -13,6 +13,14 @@ variable "route_tables" {
   type = list(object({
     name        = string
     subnet_name = string
+    routes = optional(list(object({
+      cidr_block                = string
+      gateway_id                = optional(string)
+      nat_gateway_id            = optional(string)
+      network_interface_id      = optional(string)
+      transit_gateway_id        = optional(string)
+      vpc_peering_connection_id = optional(string)
+    })), [])
   }))
   default = []
 }

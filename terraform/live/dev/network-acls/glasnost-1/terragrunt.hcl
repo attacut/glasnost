@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "../../../../modules/aws/networkacls"
+  source = "../../../../modules/aws/network-acls"
 }
 
 dependency "vpc" {
