@@ -1,3 +1,9 @@
+variable "enabled" {
+  description = "Whether to create the NAT Gateway and EIP resources"
+  type        = bool
+  default     = true
+}
+
 variable "subnet_ids" {
   description = "Map of subnet names to IDs (must be public subnets)"
   type        = map(string)

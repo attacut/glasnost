@@ -11,6 +11,13 @@ locals {
         transit_gateway_id        = route.transit_gateway_id
         vpc_peering_connection_id = route.vpc_peering_connection_id
       }
+      if anytrue([
+        route.gateway_id != null,
+        route.nat_gateway_id != null,
+        route.network_interface_id != null,
+        route.transit_gateway_id != null,
+        route.vpc_peering_connection_id != null,
+      ])
     ]
   ])
 }

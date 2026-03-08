@@ -28,6 +28,7 @@ dependency "subnets" {
 }
 
 inputs = {
+  enabled    = false # set to false to destroy NAT Gateway and EIP without removing this config
   subnet_ids = dependency.subnets.outputs.subnet_ids
 
   # One NAT Gateway per AZ (ap-southeast-1a, 1b) for high availability

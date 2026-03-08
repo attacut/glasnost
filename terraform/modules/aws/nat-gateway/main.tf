@@ -1,5 +1,5 @@
 resource "aws_eip" "this" {
-  for_each = { for nat in var.nat_gateways : nat.name => nat }
+  for_each = var.enabled ? { for nat in var.nat_gateways : nat.name => nat } : {}
 
   domain = "vpc"
 
@@ -12,7 +12,7 @@ resource "aws_eip" "this" {
 }
 
 resource "aws_nat_gateway" "this" {
-  for_each = { for nat in var.nat_gateways : nat.name => nat }
+  for_each = var.enabled ? { for nat in var.nat_gateways : nat.name => nat } : {}
 
   subnet_id     = var.subnet_ids[each.value.subnet_name]
   allocation_id = aws_eip.this[each.key].id

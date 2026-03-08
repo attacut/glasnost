@@ -81,7 +81,7 @@ inputs = {
       routes = [
         {
           cidr_block     = "0.0.0.0/0"
-          nat_gateway_id = dependency.nat.outputs.nat_gateway_ids["${dependency.vpc.outputs.vpc_name}-nat-1"]
+          nat_gateway_id = lookup(dependency.nat.outputs.nat_gateway_ids, "${dependency.vpc.outputs.vpc_name}-nat-1", null)
         },
       ]
     },
@@ -91,7 +91,7 @@ inputs = {
       routes = [
         {
           cidr_block     = "0.0.0.0/0"
-          nat_gateway_id = dependency.nat.outputs.nat_gateway_ids["${dependency.vpc.outputs.vpc_name}-nat-1"]
+          nat_gateway_id = lookup(dependency.nat.outputs.nat_gateway_ids, "${dependency.vpc.outputs.vpc_name}-nat-1", null)
         },
       ]
     },
@@ -101,7 +101,7 @@ inputs = {
       routes = [
         {
           cidr_block     = "0.0.0.0/0"
-          nat_gateway_id = dependency.nat.outputs.nat_gateway_ids["${dependency.vpc.outputs.vpc_name}-nat-1"]
+          nat_gateway_id = lookup(dependency.nat.outputs.nat_gateway_ids, "${dependency.vpc.outputs.vpc_name}-nat-1", null)
         },
       ]
     },
