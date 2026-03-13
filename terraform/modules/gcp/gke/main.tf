@@ -5,7 +5,6 @@ resource "google_container_cluster" "this" {
   network    = var.network_self_link
   subnetwork = var.subnet_self_link
 
-  # Remove the default node pool and manage node pools separately
   remove_default_node_pool = true
   initial_node_count       = 1
 
@@ -15,10 +14,8 @@ resource "google_container_cluster" "this" {
     services_secondary_range_name = var.services_secondary_range_name
   }
 
-  # Cilium: GKE Dataplane V2 (powered by Cilium)
   datapath_provider = var.enable_cilium ? "ADVANCED_DATAPATH_V2" : "LEGACY_DATAPATH"
 
-  # Gateway API (required for Istio ingress gateway)
   dynamic "gateway_api_config" {
     for_each = var.enable_gateway_api ? [1] : []
     content {
@@ -26,7 +23,6 @@ resource "google_container_cluster" "this" {
     }
   }
 
-  # Network policy is managed by Cilium when Dataplane V2 is enabled
   dynamic "network_policy" {
     for_each = var.enable_cilium ? [] : [1]
     content {
@@ -58,7 +54,6 @@ resource "google_container_cluster" "this" {
     channel = var.release_channel
   }
 
-  # DNS config for Istio multi-cluster (optional, use Cloud DNS)
   dynamic "dns_config" {
     for_each = var.enable_istio && var.cluster_dns_provider == "CLOUD_DNS" ? [1] : []
     content {
@@ -103,7 +98,15 @@ resource "google_container_node_pool" "this" {
     }
 
     labels = each.value.labels
-    taint  = each.value.taints
+
+    dynamic "taint" {
+      for_each = each.value.taints
+      content {
+        key    = taint.value.key
+        value  = taint.value.value
+        effect = taint.value.effect
+      }
+    }
 
     shielded_instance_config {
       enable_secure_boot          = true
